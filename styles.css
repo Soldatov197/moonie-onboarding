@@ -10,7 +10,7 @@ body{position:fixed;inset:0}
   color:var(--txt);
   background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38);
   overflow:hidden;
-  transition:background 2s linear;
+  transition:background 8s ease-in-out;
 }
 .app.day{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
 .app.night{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}
@@ -27,24 +27,24 @@ h1{font-size:56px;margin:44vh 0 6px;text-align:center;position:relative;z-index:
 h2{font-size:clamp(34px,9vw,44px);line-height:1.05;margin:8px 0 12px}
 p{opacity:.9;margin:0 0 14px;position:relative;z-index:2}
 
-.name-input{width:100%;background:rgba(255,255,255,.9);color:#10154b;border:none;border-radius:10px;font-size:30px;padding:8px 10px;margin:4px 0 16px;outline:none;box-shadow:none}
+.name-input{width:100%;background:rgba(255,255,255,.88);color:#10154b;border:none;border-radius:10px;font-size:30px;padding:8px 10px;margin:4px 0 16px;outline:none;box-shadow:none}
 .primary{width:100%;border:none;border-radius:999px;padding:13px 16px;background:linear-gradient(180deg,#ef9bff,#cb62ff);color:#fff;font-weight:700;font-size:16px;position:relative;z-index:2}
-.ghost{width:56px;height:46px;border:none;border-radius:14px;background:rgba(255,255,255,.12);color:#fff;font-size:20px;box-shadow:none}
+.ghost{width:56px;height:46px;border:none;border-radius:14px;background:rgba(255,255,255,.10);color:#fff;font-size:20px;box-shadow:none}
 
 .chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 20px}
-.chip{border:none;border-radius:12px;padding:12px 10px;background:rgba(255,255,255,.12);color:#fff;font-size:14px}
+.chip{border:none;border-radius:12px;padding:12px 10px;background:rgba(255,255,255,.10);color:#fff;font-size:14px}
 .chip.active{background:rgba(219,123,255,.45)}
 .center{text-align:center}
 
 ul{list-style:none;padding:0;margin:8px 0 14px;display:grid;gap:8px}
-li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-size:13px;display:flex;gap:8px;align-items:center;border:none}
+li{background:rgba(255,255,255,.08);padding:10px 12px;border-radius:999px;font-size:13px;display:flex;gap:8px;align-items:center;border:none}
 .picker{display:grid;gap:10px;margin:12px 0 20px}
-.time{border:none;border-radius:12px;padding:12px;background:rgba(255,255,255,.12);color:#fff;font-size:15px}
+.time{border:none;border-radius:12px;padding:12px;background:rgba(255,255,255,.10);color:#fff;font-size:15px}
 .time.active{background:rgba(255,255,255,.35);font-weight:700}
 
 .bottom-nav{position:absolute;left:14px;right:14px;bottom:max(12px,env(safe-area-inset-bottom));display:grid;grid-template-columns:56px 1fr 56px;gap:10px;align-items:center}
 .dots{display:flex;justify-content:center;gap:8px}.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35)}.dot.active{width:20px;border-radius:99px;background:#fff}
-.audio-toggle{position:absolute;right:14px;top:max(12px,env(safe-area-inset-top));z-index:5;border:none;border-radius:12px;padding:8px 10px;background:rgba(255,255,255,.18);color:#fff;font-size:18px}
+.audio-toggle{position:absolute;right:14px;top:max(12px,env(safe-area-inset-top));z-index:5;border:none;border-radius:12px;padding:8px 10px;background:rgba(255,255,255,.10);color:#fff;font-size:18px}
 
 /* Full-screen day/night scene */
 .celestial{overflow:hidden}
@@ -53,8 +53,7 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
 .sun{left:10%;top:18%;background:#ffd24d;box-shadow:0 0 52px rgba(255,210,77,.98);animation:sunPath 60s linear infinite;}
 .moon{left:62%;top:18%;background:#f7f8ff;box-shadow:0 0 48px rgba(255,255,255,.98);animation:moonPath 60s linear infinite;}
 
-@keyframes skyPhase{
-  0%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
+@keyframes skyPhase{0%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}20%{background:linear-gradient(180deg,#96d4ff,#6dbbfb 58%,#56a0e8)}40%{background:linear-gradient(180deg,#74a5e2,#537ec4 60%,#365b9b)}55%{background:linear-gradient(180deg,#4b63af,#2a356e 62%,#15204e)}70%{background:linear-gradient(180deg,#2a347f,#19225f 63%,#101844)}85%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}100%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}}
   30%{background:linear-gradient(180deg,#88c9ff,#61b0f4 58%,#4a95e0)}
   50%{background:linear-gradient(180deg,#4b63af,#2a356e 62%,#15204e)}
   70%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}
