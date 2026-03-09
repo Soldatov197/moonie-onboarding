@@ -1,6 +1,14 @@
 const screens=[...document.querySelectorAll('[data-screen]')];
 const dots=document.getElementById('dots');
 let index=0;
+
+function setAppHeight(){
+  const app=document.getElementById('app');
+  app.style.height = `${window.innerHeight}px`;
+}
+window.addEventListener('resize', setAppHeight);
+setAppHeight();
+
 function render(){
   screens.forEach((s,i)=>s.classList.toggle('active',i===index));
   dots.innerHTML='';
