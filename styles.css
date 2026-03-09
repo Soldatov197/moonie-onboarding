@@ -49,33 +49,38 @@ li{background:rgba(255,255,255,.05);padding:10px 12px;border-radius:999px;font-s
 /* Full-screen day/night scene */
 .celestial{overflow:hidden}
 .sky-full{position:absolute;inset:0;z-index:0;animation:skyPhase 60s linear infinite;overflow:hidden;pointer-events:none}
-.sun,.moon{position:absolute;left:62%;top:18%;width:110px;height:110px;border-radius:50%;background:#ffffff;box-shadow:0 0 60px rgba(255,255,255,1);z-index:2;animation:moonPath 60s linear infinite;}
-.sun{position:absolute;left:10%;top:18%;width:110px;height:110px;border-radius:50%;background:#ffd24d;box-shadow:0 0 60px rgba(255,210,77,1);z-index:2;animation:sunPath 60s linear infinite;}
-.moon{position:absolute;left:62%;top:18%;width:110px;height:110px;border-radius:50%;background:#ffffff;box-shadow:0 0 60px rgba(255,255,255,1);z-index:2;animation:moonPath 60s linear infinite;}
+.celestial h1,.celestial p,.celestial .primary{position:relative;z-index:3}
 
-@keyframes skyPhase{0%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}15%{background:linear-gradient(180deg,#9dd8ff,#74befd 58%,#59a4ea)}30%{background:linear-gradient(180deg,#8dcbf7,#66afe8 58%,#4b95dc)}45%{background:linear-gradient(180deg,#6f96d1,#4a6fab 60%,#2f4f86)}60%{background:linear-gradient(180deg,#4b63af,#2a356e 62%,#15204e)}75%{background:linear-gradient(180deg,#2e3b89,#1b2664 63%,#101844)}90%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}100%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}}20%{background:linear-gradient(180deg,#96d4ff,#6dbbfb 58%,#56a0e8)}40%{background:linear-gradient(180deg,#74a5e2,#537ec4 60%,#365b9b)}55%{background:linear-gradient(180deg,#4b63af,#2a356e 62%,#15204e)}70%{background:linear-gradient(180deg,#2a347f,#19225f 63%,#101844)}85%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}100%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}}
-  30%{background:linear-gradient(180deg,#88c9ff,#61b0f4 58%,#4a95e0)}
-  50%{background:linear-gradient(180deg,#4b63af,#2a356e 62%,#15204e)}
-  70%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}
+.sun,.moon{position:absolute;width:110px;height:110px;border-radius:50%;z-index:2}
+.sun{left:10%;top:18%;background:#ffd24d;box-shadow:0 0 60px rgba(255,210,77,1);animation:sunPath 60s linear infinite}
+.moon{left:62%;top:18%;background:#ffffff;box-shadow:0 0 60px rgba(255,255,255,1);animation:moonPath 60s linear infinite}
+
+@keyframes skyPhase{
+  0%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
+  15%{background:linear-gradient(180deg,#9dd8ff,#74befd 58%,#59a4ea)}
+  30%{background:linear-gradient(180deg,#8dcbf7,#66afe8 58%,#4b95dc)}
+  45%{background:linear-gradient(180deg,#6f96d1,#4a6fab 60%,#2f4f86)}
+  60%{background:linear-gradient(180deg,#4b63af,#2a356e 62%,#15204e)}
+  75%{background:linear-gradient(180deg,#2e3b89,#1b2664 63%,#101844)}
+  90%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}
   100%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
 }
-@keyframes sunPath{0%,35%{opacity:1;transform:translateY(0) scale(1)}45%{opacity:.4;transform:translateY(16px) scale(.96)}50%,100%{opacity:0;transform:translateY(30px) scale(.9)}}
-  8%{opacity:1}
-  26%{left:24%;top:34%;opacity:1}
-  40%{left:52%;top:18%;opacity:1}
-  54%{left:86%;top:38%;opacity:.55}
-  62%{left:112%;top:76%;opacity:0}
-  100%{left:112%;top:76%;opacity:0}
-}
-@keyframes moonPath{0%,50%{opacity:0;transform:translateY(30px) scale(.9)}60%{opacity:.5;transform:translateY(12px) scale(.96)}70%,100%{opacity:1;transform:translateY(0) scale(1)}}
-  42%{right:112%;top:76%;opacity:0}
-  54%{opacity:.5}
-  68%{right:52%;top:18%;opacity:1}
-  82%{right:24%;top:36%;opacity:1}
-  96%{right:-120px;top:76%;opacity:.35}
-  100%{right:-120px;top:76%;opacity:0}
+
+@keyframes sunPath{
+  0%{opacity:0;transform:translate(-120px,220px) scale(.85)}
+  10%{opacity:1}
+  30%{opacity:1;transform:translate(40px,-20px) scale(1)}
+  45%{opacity:1;transform:translate(130px,-60px) scale(1)}
+  58%{opacity:.35;transform:translate(220px,40px) scale(.92)}
+  66%{opacity:0;transform:translate(280px,220px) scale(.85)}
+  100%{opacity:0;transform:translate(280px,220px) scale(.85)}
 }
 
-button,input{border:none;outline:none;box-shadow:none;}
-
-.celestial::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;}
+@keyframes moonPath{
+  0%{opacity:0;transform:translate(-280px,220px) scale(.85)}
+  46%{opacity:0;transform:translate(-280px,220px) scale(.85)}
+  58%{opacity:.4;transform:translate(-210px,60px) scale(.92)}
+  72%{opacity:1;transform:translate(-120px,-60px) scale(1)}
+  86%{opacity:1;transform:translate(-30px,-20px) scale(1)}
+  100%{opacity:0;transform:translate(40px,220px) scale(.85)}
+}
