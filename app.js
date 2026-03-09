@@ -55,9 +55,9 @@ function setDay(){
   if(!audioOn) return;
   hardPlay(dayAudio, 0.01);
   hardPlay(nightAudio, Math.max(nightAudio?.volume||0.2,0.2));
-  fade(dayAudio, dayAudio?.volume||0.01, 0.95, 8000);
-  fade(nightAudio, nightAudio?.volume||0.2, 0.0, 8000);
-  setTimeout(()=>nightAudio?.pause(), 8500);
+  fade(dayAudio, dayAudio?.volume||0.01, 0.85, 14000);
+  fade(nightAudio, nightAudio?.volume||0.2, 0.0, 14000);
+  setTimeout(()=>nightAudio?.pause(), 17000);
   log('phase=day');
 }
 
@@ -68,9 +68,9 @@ function setNight(){
   if(!audioOn) return;
   hardPlay(nightAudio, 0.01);
   hardPlay(dayAudio, Math.max(dayAudio?.volume||0.2,0.2));
-  fade(nightAudio, nightAudio?.volume||0.01, 0.95, 8000);
-  fade(dayAudio, dayAudio?.volume||0.2, 0.0, 8000);
-  setTimeout(()=>dayAudio?.pause(), 8500);
+  fade(nightAudio, nightAudio?.volume||0.01, 0.85, 14000);
+  fade(dayAudio, dayAudio?.volume||0.2, 0.0, 14000);
+  setTimeout(()=>dayAudio?.pause(), 17000);
   log('phase=night');
 }
 
