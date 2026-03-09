@@ -2,82 +2,82 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moonie — Interactive Onboarding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Moonie App</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="app-wrap">
-    <section class="phone">
-      <div class="stars" aria-hidden="true"></div>
+  <div class="app" id="app">
+    <div class="stars"></div>
 
-      <article class="screen active" data-screen>
-        <div class="status">9:41</div>
-        <h2>Welcome to<br>Moonie!</h2>
-        <p>What do your friends call you?</p>
-        <input class="name-input" value="Lizzie" />
-        <button class="primary" data-next>Continue</button>
-      </article>
-
-      <article class="screen" data-screen>
-        <div class="status">9:41</div>
-        <h2>What interests<br>you most?</h2>
-        <div class="chips">
-          <button class="chip">Sleep tracking</button>
-          <button class="chip">Calm sounds</button>
-          <button class="chip">Meditations</button>
-          <button class="chip">Vocal art</button>
-        </div>
-        <button class="primary" data-next>Continue</button>
-      </article>
-
-      <article class="screen center" data-screen>
-        <div class="moon"></div>
-        <h1>Moonie</h1>
-        <p>Leave stress behind</p>
-        <button class="primary" data-next>Start</button>
-      </article>
-
-      <article class="screen" data-screen>
-        <div class="status">9:41</div>
-        <h2>Let’s personalise<br>your experience</h2>
-        <ul>
-          <li><input type="checkbox" checked> Trouble falling asleep</li>
-          <li><input type="checkbox"> Calm in a busy mind</li>
-          <li><input type="checkbox"> Reduce stress or anxiety</li>
-          <li><input type="checkbox"> Increase happiness</li>
-          <li><input type="checkbox"> Create a healthy habit</li>
-        </ul>
-        <button class="primary" data-next>Continue</button>
-      </article>
-
-      <article class="screen" data-screen>
-        <div class="status">9:41</div>
-        <h2>What time do you<br>want sleep sound?</h2>
-        <div class="picker">
-          <button class="time">10:00 pm</button>
-          <button class="time active">11:00 pm</button>
-          <button class="time">12:00 am</button>
-        </div>
-        <button class="primary" data-next>Save</button>
-      </article>
-
-      <article class="screen center" data-screen>
-        <h2>All set ✨</h2>
-        <p>Your onboarding is done</p>
-        <button class="primary" data-reset>Back to start</button>
-      </article>
-
-      <nav class="bottom-nav">
-        <button class="ghost" data-prev>←</button>
-        <div class="dots" id="dots"></div>
-        <button class="ghost" data-next>→</button>
-      </nav>
+    <section class="screen active" data-screen>
+      <div class="status">9:41</div>
+      <h2>Welcome to<br>Moonie!</h2>
+      <p>What do your friends call you?</p>
+      <input class="name-input" value="Lizzie" />
+      <button class="primary" data-next>Continue</button>
     </section>
-  </main>
+
+    <section class="screen" data-screen>
+      <div class="status">9:41</div>
+      <h2>What interests<br>you most?</h2>
+      <div class="chips">
+        <button class="chip">Sleep tracking</button>
+        <button class="chip">Calm sounds</button>
+        <button class="chip">Meditations</button>
+        <button class="chip">Vocal art</button>
+      </div>
+      <button class="primary" data-next>Continue</button>
+    </section>
+
+    <section class="screen center" data-screen>
+      <div class="moon"></div>
+      <h1>Moonie</h1>
+      <p>Leave stress behind</p>
+      <button class="primary" data-next>Start</button>
+    </section>
+
+    <section class="screen" data-screen>
+      <div class="status">9:41</div>
+      <h2>Let’s personalise<br>your experience</h2>
+      <ul>
+        <li><input type="checkbox" checked> Trouble falling asleep</li>
+        <li><input type="checkbox"> Calm in a busy mind</li>
+        <li><input type="checkbox"> Reduce stress or anxiety</li>
+        <li><input type="checkbox"> Increase happiness</li>
+        <li><input type="checkbox"> Create healthy habit</li>
+      </ul>
+      <button class="primary" data-next>Continue</button>
+    </section>
+
+    <section class="screen" data-screen>
+      <div class="status">9:41</div>
+      <h2>What time do you<br>want sleep sound?</h2>
+      <div class="picker">
+        <button class="time">10:00 pm</button>
+        <button class="time active">11:00 pm</button>
+        <button class="time">12:00 am</button>
+      </div>
+      <button class="primary" data-next>Save</button>
+    </section>
+
+    <section class="screen center" data-screen>
+      <h2>All set ✨</h2>
+      <p>Your onboarding is done</p>
+      <button class="primary" data-reset>Back to start</button>
+    </section>
+
+    <nav class="bottom-nav">
+      <button class="ghost" data-prev>←</button>
+      <div class="dots" id="dots"></div>
+      <button class="ghost" data-next>→</button>
+    </nav>
+  </div>
   <script src="app.js"></script>
 </body>
 </html>
