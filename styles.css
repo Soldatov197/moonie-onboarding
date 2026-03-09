@@ -48,10 +48,10 @@ li{background:rgba(255,255,255,.08);padding:10px 12px;border-radius:999px;font-s
 
 /* Full-screen day/night scene */
 .celestial{overflow:hidden}
-.sky-full{position:absolute;inset:0;z-index:0;animation:skyPhase 60s linear infinite;overflow:hidden}
-.sun,.moon{left:62%;top:18%;background:#f7f8ff;box-shadow:0 0 48px rgba(255,255,255,.98);animation:moonPath 60s linear infinite;}
-.sun{left:10%;top:18%;background:#ffd24d;box-shadow:0 0 52px rgba(255,210,77,.98);animation:sunPath 60s linear infinite;}
-.moon{left:62%;top:18%;background:#f7f8ff;box-shadow:0 0 48px rgba(255,255,255,.98);animation:moonPath 60s linear infinite;}
+.sky-full{position:absolute;inset:0;z-index:0;animation:skyPhase 60s linear infinite;overflow:hidden;pointer-events:none}
+.sun,.moon{position:absolute;left:62%;top:18%;width:110px;height:110px;border-radius:50%;background:#ffffff;box-shadow:0 0 60px rgba(255,255,255,1);z-index:2;animation:moonPath 60s linear infinite;}
+.sun{position:absolute;left:10%;top:18%;width:110px;height:110px;border-radius:50%;background:#ffd24d;box-shadow:0 0 60px rgba(255,210,77,1);z-index:2;animation:sunPath 60s linear infinite;}
+.moon{position:absolute;left:62%;top:18%;width:110px;height:110px;border-radius:50%;background:#ffffff;box-shadow:0 0 60px rgba(255,255,255,1);z-index:2;animation:moonPath 60s linear infinite;}
 
 @keyframes skyPhase{0%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}20%{background:linear-gradient(180deg,#96d4ff,#6dbbfb 58%,#56a0e8)}40%{background:linear-gradient(180deg,#74a5e2,#537ec4 60%,#365b9b)}55%{background:linear-gradient(180deg,#4b63af,#2a356e 62%,#15204e)}70%{background:linear-gradient(180deg,#2a347f,#19225f 63%,#101844)}85%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}100%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}}
   30%{background:linear-gradient(180deg,#88c9ff,#61b0f4 58%,#4a95e0)}
@@ -77,3 +77,5 @@ li{background:rgba(255,255,255,.08);padding:10px 12px;border-radius:999px;font-s
 }
 
 button,input{border:none;outline:none;box-shadow:none;}
+
+.celestial::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;}
