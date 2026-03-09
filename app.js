@@ -28,79 +28,42 @@ document.addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
 render();
 
 
-// ---- Audio: sleepy ambient + click sounds ----
-let audioCtx=null;
-let master=null;
+// ---- Audio: sleepy ambient + click sounds (HTMLAudio for iPhone) ----
+const bgAudio=document.getElementById('bgAudio');
+const clickAudio=document.getElementById('clickAudio');
 let audioOn=true;
-let ambientNodes=[];
 
-function ensureAudio(){
-  if(audioCtx) return;
-  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  master = audioCtx.createGain();
-  master.gain.value = 0.18; // louder for phones
-  master.connect(audioCtx.destination);
-
-  // soft ambient chord (audible on phone speakers)
-  const freqs=[220,277.18,329.63];
-  freqs.forEach((f,i)=>{
-    const o=audioCtx.createOscillator();
-    const g=audioCtx.createGain();
-    o.type='sine';
-    o.frequency.value=f;
-    g.gain.value=0.0001;
-    o.connect(g); g.connect(master);
-    o.start();
-    g.gain.linearRampToValueAtTime(0.035 - i*0.006, audioCtx.currentTime + 1.2);
-    ambientNodes.push({o,g});
-  });
+function unlockAudio(){
+  if(!bgAudio||!clickAudio) return;
+  bgAudio.volume=0.35;
+  clickAudio.volume=0.5;
+  bgAudio.play().catch(()=>{});
 }
 
 function clickTone(){
-  if(!audioOn) return;
-  ensureAudio();
-  const o = audioCtx.createOscillator();
-  const g = audioCtx.createGain();
-  o.type='square';
-  o.frequency.setValueAtTime(900, audioCtx.currentTime);
-  o.frequency.exponentialRampToValueAtTime(500, audioCtx.currentTime + 0.06);
-  g.gain.setValueAtTime(0.0001, audioCtx.currentTime);
-  g.gain.exponentialRampToValueAtTime(0.22, audioCtx.currentTime + 0.01);
-  g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.09);
-  o.connect(g); g.connect(master);
-  o.start(); o.stop(audioCtx.currentTime + 0.1);
+  if(!audioOn||!clickAudio) return;
+  try{ clickAudio.currentTime=0; clickAudio.play().catch(()=>{}); }catch(e){}
 }
 
 function wireAudioButtons(){
-  const audioToggle = document.getElementById('audioToggle');
+  const audioToggle=document.getElementById('audioToggle');
   if(audioToggle){
     audioToggle.addEventListener('click',()=>{
-      ensureAudio();
-      if(audioCtx.state === 'suspended') audioCtx.resume();
-      audioOn = !audioOn;
-      master.gain.value = audioOn ? 0.18 : 0.0;
-      audioToggle.textContent = audioOn ? '🔊' : '🔈';
+      audioOn=!audioOn;
+      audioToggle.textContent=audioOn?'🔊':'🔈';
+      if(bgAudio){
+        if(audioOn){ bgAudio.play().catch(()=>{}); }
+        else { bgAudio.pause(); }
+      }
       clickTone();
     });
   }
 
-  document.querySelectorAll('button').forEach(b=>{
-    b.addEventListener('click',()=>{
-      ensureAudio();
-      if(audioCtx.state === 'suspended') audioCtx.resume();
-      clickTone();
-    });
-  });
+  document.querySelectorAll('button').forEach(b=>b.addEventListener('click',clickTone));
 
-  // first user gesture unlock
-  const unlock = ()=>{
-    ensureAudio();
-    if(audioCtx.state === 'suspended') audioCtx.resume();
-    document.removeEventListener('pointerdown', unlock);
-    document.removeEventListener('touchstart', unlock);
-  };
-  document.addEventListener('pointerdown', unlock, { once:true });
-  document.addEventListener('touchstart', unlock, { once:true });
+  const first=()=>{ unlockAudio(); document.removeEventListener('touchstart',first); document.removeEventListener('pointerdown',first); };
+  document.addEventListener('touchstart',first,{once:true});
+  document.addEventListener('pointerdown',first,{once:true});
 }
 
 wireAudioButtons();
