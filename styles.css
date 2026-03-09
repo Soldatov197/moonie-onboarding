@@ -50,6 +50,6 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
 .sun,.moon{position:absolute;top:28px;width:70px;height:70px;border-radius:50%;transition:all .8s ease}
 .sun{left:18px;background:#ffd86b;box-shadow:0 0 26px rgba(255,216,107,.9);animation:sunMove 10s ease-in-out infinite}
 .moon{right:18px;background:#f7f8ff;box-shadow:0 0 28px rgba(255,255,255,.9);animation:moonMove 10s ease-in-out infinite}
-@keyframes skyFade{0%,100%{background:linear-gradient(180deg,#16266f,#0a1242)}50%{background:linear-gradient(180deg,#7ecbff,#4aa1ff)}}
+@keyframes skyFade{0%{background:linear-gradient(180deg,#7ecbff,#4aa1ff)}50%{background:linear-gradient(180deg,#16266f,#0a1242)}100%{background:linear-gradient(180deg,#7ecbff,#4aa1ff)}}
 @keyframes sunMove{0%,100%{opacity:0.15;transform:translateY(8px) scale(.9)}50%{opacity:1;transform:translateY(-6px) scale(1)}}
 @keyframes moonMove{0%,100%{opacity:1;transform:translateY(-6px) scale(1)}50%{opacity:0.12;transform:translateY(10px) scale(.9)}}
