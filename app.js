@@ -60,7 +60,7 @@ function startCycle(){
   cycleTimer=setInterval(()=>{
     if(phase==='day'){ phase='night'; playNight(); }
     else { phase='day'; playDay(); }
-  },20000);
+  },30000);
   log('cycle started');
 }
 
@@ -117,18 +117,18 @@ playDay = function(){
   appEl.classList.add('day'); appEl.classList.remove('night');
   if(!audioOn) return;
   hardPlay(dayAudio,0.0); hardPlay(nightAudio, nightAudio?.volume||0.25);
-  fade(dayAudio, dayAudio?.volume||0, 1.0, 2600);
-  fade(nightAudio, nightAudio?.volume||0.25, 0.0, 2600);
-  setTimeout(()=>{ if(nightAudio) nightAudio.pause(); },3200);
+  fade(dayAudio, dayAudio?.volume||0, 1.0, 7000);
+  fade(nightAudio, nightAudio?.volume||0.25, 0.0, 7000);
+  setTimeout(()=>{ if(nightAudio) nightAudio.pause(); },7600);
   log('phase=day');
 }
 playNight = function(){
   appEl.classList.add('night'); appEl.classList.remove('day');
   if(!audioOn) return;
   hardPlay(nightAudio,0.0); hardPlay(dayAudio, dayAudio?.volume||0.25);
-  fade(nightAudio, nightAudio?.volume||0, 1.0, 2600);
-  fade(dayAudio, dayAudio?.volume||0.25, 0.0, 2600);
-  setTimeout(()=>{ if(dayAudio) dayAudio.pause(); },3200);
+  fade(nightAudio, nightAudio?.volume||0, 1.0, 7000);
+  fade(dayAudio, dayAudio?.volume||0.25, 0.0, 7000);
+  setTimeout(()=>{ if(dayAudio) dayAudio.pause(); },7600);
   log('phase=night');
 }
 unlockAudio = function(){
