@@ -2,35 +2,35 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0b0d2b;font-family:Inter,sans-serif}
 body{position:fixed;inset:0}
+
 .app{
-  position:fixed;left:0;right:0;top:0;bottom:0;
+  position:fixed;inset:0;
   height:100dvh;
   padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom));
   color:var(--txt);
-  background:linear-gradient(180deg,#2b38a7,#12145f 64%,#0b0e43);
-  transition:background 2.2s ease;
+  background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38);
   overflow:hidden;
+  transition:background 2s linear;
 }
-.stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:42px 42px;opacity:.16;animation:drift 22s linear infinite;pointer-events:none}
+.app.day{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
+.app.night{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}
+
+.stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:42px 42px;opacity:.16;animation:drift 26s linear infinite;pointer-events:none}
 @keyframes drift{to{transform:translateY(42px)}}
-.screen{
-  display:none !important;
-  position:absolute;
-  left:14px;right:14px;
-  top:max(14px,env(safe-area-inset-top));
-  bottom:90px;
-  padding:4px;
-  overflow:hidden;
-}
-.screen.active{display:block !important;animation:slide .2s ease}
+
+.screen{display:none !important;position:absolute;left:14px;right:14px;top:max(14px,env(safe-area-inset-top));bottom:90px;padding:4px;overflow:hidden}
+.screen.active{display:block !important;animation:slide .22s ease}
 @keyframes slide{from{opacity:.2;transform:translateX(12px)}to{opacity:1;transform:none}}
+
 .status{font-size:12px;opacity:.74;margin-bottom:8px}
-h1{font-size:56px;margin:120px 0 6px;text-align:center}
+h1{font-size:56px;margin:44vh 0 6px;text-align:center;position:relative;z-index:2;text-shadow:0 8px 24px rgba(0,0,0,.35)}
 h2{font-size:clamp(34px,9vw,44px);line-height:1.05;margin:8px 0 12px}
-p{opacity:.9;margin:0 0 14px}
+p{opacity:.9;margin:0 0 14px;position:relative;z-index:2}
+
 .name-input{width:100%;background:rgba(255,255,255,.96);color:#10154b;border:none;border-radius:10px;font-size:30px;padding:8px 10px;margin:4px 0 16px}
-.primary{width:100%;border:none;border-radius:999px;padding:13px 16px;background:linear-gradient(180deg,#ef9bff,#cb62ff);color:#fff;font-weight:700;font-size:16px}
+.primary{width:100%;border:none;border-radius:999px;padding:13px 16px;background:linear-gradient(180deg,#ef9bff,#cb62ff);color:#fff;font-weight:700;font-size:16px;position:relative;z-index:2}
 .ghost{width:56px;height:46px;border:none;border-radius:14px;background:rgba(255,255,255,.2);color:#fff;font-size:20px}
+
 .chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 20px}
 .chip{border:none;border-radius:12px;padding:12px 10px;background:rgba(255,255,255,.12);color:#fff;font-size:14px}
 .chip.active{background:rgba(219,123,255,.5);outline:2px solid rgba(255,255,255,.45)}
@@ -41,23 +41,40 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
 .picker{display:grid;gap:10px;margin:12px 0 20px}
 .time{border:none;border-radius:12px;padding:12px;background:rgba(255,255,255,.12);color:#fff;font-size:15px}
 .time.active{background:rgba(255,255,255,.35);font-weight:700}
+
 .bottom-nav{position:absolute;left:14px;right:14px;bottom:max(12px,env(safe-area-inset-bottom));display:grid;grid-template-columns:56px 1fr 56px;gap:10px;align-items:center}
 .dots{display:flex;justify-content:center;gap:8px}.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35)}.dot.active{width:20px;border-radius:99px;background:#fff}
-
 .audio-toggle{position:absolute;right:14px;top:max(12px,env(safe-area-inset-top));z-index:5;border:none;border-radius:12px;padding:8px 10px;background:rgba(255,255,255,.18);color:#fff;font-size:18px}
 
-
-.app.day{background:linear-gradient(180deg,#9ad9ff,#72beff 55%,#5ba5ef);} 
-.app.night{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38);} 
-
-
+/* Full-screen day/night scene */
 .celestial{overflow:hidden}
 .sky-full{position:absolute;inset:0;z-index:0;animation:skyPhase 60s linear infinite}
-.celestial h1,.celestial p,.celestial .primary{position:relative;z-index:2}
-.celestial h1{margin-top:42vh;text-shadow:0 8px 22px rgba(0,0,0,.35)}
-.sun,.moon{position:absolute;width:92px;height:92px;border-radius:50%}
-.sun{left:-120px;top:58%;background:#ffd86b;box-shadow:0 0 38px rgba(255,216,107,.95);animation:sunPath 60s linear infinite}
-.moon{right:-120px;top:58%;background:#f7f8ff;box-shadow:0 0 34px rgba(255,255,255,.95);animation:moonPath 60s linear infinite}
-@keyframes skyPhase{0%{background:linear-gradient(180deg,#9ad9ff,#72beff 58%,#5ba5ef)}25%{background:linear-gradient(180deg,#7fc0ff,#5aa9f8 58%,#3f8fe0)}50%{background:linear-gradient(180deg,#4d68b3,#2b376f 62%,#16204f)}75%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}100%{background:linear-gradient(180deg,#9ad9ff,#72beff 58%,#5ba5ef)}}40%{background:linear-gradient(180deg,#9ad9ff,#72beff 58%,#5ba5ef)}50%{background:linear-gradient(180deg,#4d68b3,#2b376f 62%,#16204f)}60%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}100%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}}
-@keyframes sunPath{0%{left:-110px;top:72%;opacity:0}10%{opacity:.7}25%{left:22%;top:32%;opacity:1}40%{left:55%;top:16%;opacity:1}55%{left:86%;top:34%;opacity:.7}65%{left:108%;top:70%;opacity:0}100%{left:108%;top:70%;opacity:0}}10%{opacity:1}25%{left:38%;top:16%}45%{left:110%;top:68%;opacity:0}100%{left:110%;top:68%;opacity:0}}
-@keyframes moonPath{0%{right:108%;top:70%;opacity:0}35%{right:108%;top:70%;opacity:0}45%{opacity:.6}60%{right:55%;top:18%;opacity:1}75%{right:22%;top:34%;opacity:1}90%{right:-110px;top:72%;opacity:.5}100%{right:-110px;top:72%;opacity:0}}45%{right:110%;top:68%;opacity:0}55%{opacity:1}75%{right:38%;top:16%}100%{right:-120px;top:70%;opacity:0}}
+.sun,.moon{position:absolute;width:96px;height:96px;border-radius:50%;z-index:1}
+.sun{left:-120px;top:76%;background:#ffd86b;box-shadow:0 0 40px rgba(255,216,107,.95);animation:sunPath 60s linear infinite}
+.moon{right:110%;top:76%;background:#f7f8ff;box-shadow:0 0 36px rgba(255,255,255,.95);animation:moonPath 60s linear infinite}
+
+@keyframes skyPhase{
+  0%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
+  30%{background:linear-gradient(180deg,#88c9ff,#61b0f4 58%,#4a95e0)}
+  50%{background:linear-gradient(180deg,#4b63af,#2a356e 62%,#15204e)}
+  70%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}
+  100%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
+}
+@keyframes sunPath{
+  0%{left:-120px;top:76%;opacity:0}
+  8%{opacity:1}
+  26%{left:24%;top:34%;opacity:1}
+  40%{left:52%;top:18%;opacity:1}
+  54%{left:86%;top:38%;opacity:.55}
+  62%{left:112%;top:76%;opacity:0}
+  100%{left:112%;top:76%;opacity:0}
+}
+@keyframes moonPath{
+  0%{right:112%;top:76%;opacity:0}
+  42%{right:112%;top:76%;opacity:0}
+  54%{opacity:.5}
+  68%{right:52%;top:18%;opacity:1}
+  82%{right:24%;top:36%;opacity:1}
+  96%{right:-120px;top:76%;opacity:.35}
+  100%{right:-120px;top:76%;opacity:0}
+}
