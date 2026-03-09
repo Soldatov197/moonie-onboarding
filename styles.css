@@ -8,6 +8,7 @@ body{position:fixed;inset:0}
   padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom));
   color:var(--txt);
   background:linear-gradient(180deg,#2b38a7,#12145f 64%,#0b0e43);
+  transition:background 2.2s ease;
   overflow:hidden;
 }
 .stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:42px 42px;opacity:.16;animation:drift 22s linear infinite;pointer-events:none}
@@ -51,5 +52,8 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
 .sun{left:18px;background:#ffd86b;box-shadow:0 0 26px rgba(255,216,107,.9);animation:sunMove 10s ease-in-out infinite}
 .moon{right:18px;background:#f7f8ff;box-shadow:0 0 28px rgba(255,255,255,.9);animation:moonMove 10s ease-in-out infinite}
 @keyframes skyFade{0%{background:linear-gradient(180deg,#7ecbff,#4aa1ff)}50%{background:linear-gradient(180deg,#16266f,#0a1242)}100%{background:linear-gradient(180deg,#7ecbff,#4aa1ff)}}
-@keyframes sunMove{0%,100%{opacity:0.15;transform:translateY(8px) scale(.9)}50%{opacity:1;transform:translateY(-6px) scale(1)}}
-@keyframes moonMove{0%,100%{opacity:1;transform:translateY(-6px) scale(1)}50%{opacity:0.12;transform:translateY(10px) scale(.9)}}
+@keyframes sunMove{0%{opacity:1;transform:translate(0,0) scale(1)}45%{opacity:.2;transform:translate(90px,45px) scale(.86)}50%{opacity:.05;transform:translate(98px,52px) scale(.82)}100%{opacity:1;transform:translate(0,0) scale(1)}}
+@keyframes moonMove{0%{opacity:.05;transform:translate(-98px,52px) scale(.82)}50%{opacity:1;transform:translate(0,0) scale(1)}100%{opacity:.05;transform:translate(-98px,52px) scale(.82)}}
+
+.app.day{background:linear-gradient(180deg,#8fd3ff,#63b3ff 58%,#4a93e8);}
+.app.night{background:linear-gradient(180deg,#222f8e,#12145f 64%,#0b0e43);}
