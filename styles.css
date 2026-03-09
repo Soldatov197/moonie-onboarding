@@ -48,10 +48,10 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
 
 /* Full-screen day/night scene */
 .celestial{overflow:hidden}
-.sky-full{position:absolute;inset:0;z-index:0;animation:skyPhase 60s linear infinite}
-.sun,.moon{position:absolute;width:96px;height:96px;border-radius:50%;z-index:1}
-.sun{left:-120px;top:76%;background:#ffd86b;box-shadow:0 0 40px rgba(255,216,107,.95);animation:sunPath 60s linear infinite}
-.moon{right:110%;top:76%;background:#f7f8ff;box-shadow:0 0 36px rgba(255,255,255,.95);animation:moonPath 60s linear infinite}
+.sky-full{position:absolute;inset:0;z-index:0;animation:skyPhase 60s linear infinite;overflow:hidden}
+.sun,.moon{left:62%;top:18%;background:#f7f8ff;box-shadow:0 0 48px rgba(255,255,255,.98);animation:moonPath 60s linear infinite;}
+.sun{left:10%;top:18%;background:#ffd24d;box-shadow:0 0 52px rgba(255,210,77,.98);animation:sunPath 60s linear infinite;}
+.moon{left:62%;top:18%;background:#f7f8ff;box-shadow:0 0 48px rgba(255,255,255,.98);animation:moonPath 60s linear infinite;}
 
 @keyframes skyPhase{
   0%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
@@ -60,8 +60,7 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
   70%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}
   100%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
 }
-@keyframes sunPath{
-  0%{left:-120px;top:76%;opacity:0}
+@keyframes sunPath{0%,35%{opacity:1;transform:translateY(0) scale(1)}45%{opacity:.4;transform:translateY(16px) scale(.96)}50%,100%{opacity:0;transform:translateY(30px) scale(.9)}}
   8%{opacity:1}
   26%{left:24%;top:34%;opacity:1}
   40%{left:52%;top:18%;opacity:1}
@@ -69,8 +68,7 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
   62%{left:112%;top:76%;opacity:0}
   100%{left:112%;top:76%;opacity:0}
 }
-@keyframes moonPath{
-  0%{right:112%;top:76%;opacity:0}
+@keyframes moonPath{0%,50%{opacity:0;transform:translateY(30px) scale(.9)}60%{opacity:.5;transform:translateY(12px) scale(.96)}70%,100%{opacity:1;transform:translateY(0) scale(1)}}
   42%{right:112%;top:76%;opacity:0}
   54%{opacity:.5}
   68%{right:52%;top:18%;opacity:1}
