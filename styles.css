@@ -52,12 +52,12 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
 
 
 .celestial{overflow:hidden}
-.sky-full{position:absolute;inset:0;z-index:0;animation:skyPhase 30s linear infinite}
+.sky-full{position:absolute;inset:0;z-index:0;animation:skyPhase 40s ease-in-out infinite}
 .celestial h1,.celestial p,.celestial .primary{position:relative;z-index:2}
 .celestial h1{margin-top:42vh;text-shadow:0 8px 22px rgba(0,0,0,.35)}
 .sun,.moon{position:absolute;width:92px;height:92px;border-radius:50%}
-.sun{left:-120px;top:58%;background:#ffd86b;box-shadow:0 0 38px rgba(255,216,107,.95);animation:sunPath 30s linear infinite}
-.moon{right:-120px;top:58%;background:#f7f8ff;box-shadow:0 0 34px rgba(255,255,255,.95);animation:moonPath 30s linear infinite}
-@keyframes skyPhase{0%{background:linear-gradient(180deg,#9ad9ff,#72beff 58%,#5ba5ef)}45%{background:linear-gradient(180deg,#9ad9ff,#72beff 58%,#5ba5ef)}55%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}100%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}}
+.sun{left:-120px;top:58%;background:#ffd86b;box-shadow:0 0 38px rgba(255,216,107,.95);animation:sunPath 40s ease-in-out infinite}
+.moon{right:-120px;top:58%;background:#f7f8ff;box-shadow:0 0 34px rgba(255,255,255,.95);animation:moonPath 40s ease-in-out infinite}
+@keyframes skyPhase{0%{background:linear-gradient(180deg,#9ad9ff,#72beff 58%,#5ba5ef)}40%{background:linear-gradient(180deg,#9ad9ff,#72beff 58%,#5ba5ef)}50%{background:linear-gradient(180deg,#4d68b3,#2b376f 62%,#16204f)}60%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}100%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}}
 @keyframes sunPath{0%{left:-120px;top:70%;opacity:0}10%{opacity:1}25%{left:38%;top:16%}45%{left:110%;top:68%;opacity:0}100%{left:110%;top:68%;opacity:0}}
 @keyframes moonPath{0%{right:110%;top:68%;opacity:0}45%{right:110%;top:68%;opacity:0}55%{opacity:1}75%{right:38%;top:16%}100%{right:-120px;top:70%;opacity:0}}

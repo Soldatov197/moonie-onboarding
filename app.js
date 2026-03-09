@@ -60,7 +60,7 @@ function startCycle(){
   cycleTimer=setInterval(()=>{
     if(phase==='day'){ phase='night'; playNight(); }
     else { phase='day'; playDay(); }
-  },15000);
+  },20000);
   log('cycle started');
 }
 
@@ -117,24 +117,24 @@ playDay = function(){
   appEl.classList.add('day'); appEl.classList.remove('night');
   if(!audioOn) return;
   hardPlay(dayAudio,0.0); hardPlay(nightAudio, nightAudio?.volume||0.25);
-  fade(dayAudio, dayAudio?.volume||0, 0.95, 1800);
-  fade(nightAudio, nightAudio?.volume||0.25, 0.0, 1800);
-  setTimeout(()=>{ if(nightAudio) nightAudio.pause(); },2000);
+  fade(dayAudio, dayAudio?.volume||0, 1.0, 2600);
+  fade(nightAudio, nightAudio?.volume||0.25, 0.0, 2600);
+  setTimeout(()=>{ if(nightAudio) nightAudio.pause(); },3200);
   log('phase=day');
 }
 playNight = function(){
   appEl.classList.add('night'); appEl.classList.remove('day');
   if(!audioOn) return;
   hardPlay(nightAudio,0.0); hardPlay(dayAudio, dayAudio?.volume||0.25);
-  fade(nightAudio, nightAudio?.volume||0, 0.95, 1800);
-  fade(dayAudio, dayAudio?.volume||0.25, 0.0, 1800);
-  setTimeout(()=>{ if(dayAudio) dayAudio.pause(); },2000);
+  fade(nightAudio, nightAudio?.volume||0, 1.0, 2600);
+  fade(dayAudio, dayAudio?.volume||0.25, 0.0, 2600);
+  setTimeout(()=>{ if(dayAudio) dayAudio.pause(); },3200);
   log('phase=night');
 }
 unlockAudio = function(){
   if(dayAudio){ dayAudio.currentTime=0; dayAudio.volume=0; dayAudio.play().then(()=>dayAudio.pause()).catch(()=>{}); }
   if(nightAudio){ nightAudio.currentTime=0; nightAudio.volume=0; nightAudio.play().then(()=>nightAudio.pause()).catch(()=>{}); }
   if(clickAudio){ clickAudio.volume=0.65; }
-  if(index===celestialIndex) startCycle();
+  hardPlay(dayAudio,0.01); hardPlay(nightAudio,0.01); if(index===celestialIndex) startCycle();
   log('audio unlocked');
 }
