@@ -27,17 +27,17 @@ h1{font-size:56px;margin:44vh 0 6px;text-align:center;position:relative;z-index:
 h2{font-size:clamp(34px,9vw,44px);line-height:1.05;margin:8px 0 12px}
 p{opacity:.9;margin:0 0 14px;position:relative;z-index:2}
 
-.name-input{width:100%;background:rgba(255,255,255,.96);color:#10154b;border:none;border-radius:10px;font-size:30px;padding:8px 10px;margin:4px 0 16px}
+.name-input{width:100%;background:rgba(255,255,255,.9);color:#10154b;border:none;border-radius:10px;font-size:30px;padding:8px 10px;margin:4px 0 16px;outline:none;box-shadow:none}
 .primary{width:100%;border:none;border-radius:999px;padding:13px 16px;background:linear-gradient(180deg,#ef9bff,#cb62ff);color:#fff;font-weight:700;font-size:16px;position:relative;z-index:2}
-.ghost{width:56px;height:46px;border:none;border-radius:14px;background:rgba(255,255,255,.2);color:#fff;font-size:20px}
+.ghost{width:56px;height:46px;border:none;border-radius:14px;background:rgba(255,255,255,.12);color:#fff;font-size:20px;box-shadow:none}
 
 .chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 20px}
 .chip{border:none;border-radius:12px;padding:12px 10px;background:rgba(255,255,255,.12);color:#fff;font-size:14px}
-.chip.active{background:rgba(219,123,255,.5);outline:2px solid rgba(255,255,255,.45)}
+.chip.active{background:rgba(219,123,255,.45)}
 .center{text-align:center}
 
 ul{list-style:none;padding:0;margin:8px 0 14px;display:grid;gap:8px}
-li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-size:13px;display:flex;gap:8px;align-items:center}
+li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-size:13px;display:flex;gap:8px;align-items:center;border:none}
 .picker{display:grid;gap:10px;margin:12px 0 20px}
 .time{border:none;border-radius:12px;padding:12px;background:rgba(255,255,255,.12);color:#fff;font-size:15px}
 .time.active{background:rgba(255,255,255,.35);font-weight:700}
@@ -78,3 +78,5 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
   96%{right:-120px;top:76%;opacity:.35}
   100%{right:-120px;top:76%;opacity:0}
 }
+
+button,input{border:none;outline:none;box-shadow:none;}
