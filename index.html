@@ -3,73 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moonie App Prototype</title>
+  <title>Moonie — Onboarding Screens</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="app-shell">
-    <div class="phone">
-      <div class="screen active" data-screen>
+  <main class="board">
+    <a class="back">&#x2039;</a>
+    <h1>Onboarding</h1>
+    <p>Users are people. People are unique. Personalization is important...</p>
+
+    <section class="screens-grid">
+      <article class="phone s1">
         <div class="status">9:41</div>
-        <h2>Welcome to<br>Moonie!</h2>
+        <h3>What interests<br>you most about<br>Moonie?</h3>
+        <div class="chips"><span>Sleep tracking</span><span>Calm sounds</span><span>Meditations</span><span>Vocal art</span></div>
+        <button>Continue</button>
+      </article>
+
+      <article class="phone s2 center">
+        <div class="moon"></div>
+        <h2>Moonie</h2>
+      </article>
+
+      <article class="phone s3">
+        <div class="status">9:41</div>
+        <h3>Welcome to<br>Moonie!</h3>
         <p>What do your friends call you?</p>
         <div class="input">Lizzie</div>
-        <button data-next>Continue</button>
-      </div>
+        <button>Continue</button>
+      </article>
 
-      <div class="screen" data-screen>
-        <div class="status">9:41</div>
-        <h2>What interests<br>you most?</h2>
-        <div class="chips">
-          <span>Sleep tracking</span><span>Calm sounds</span><span>Meditations</span><span>Vocal art</span>
-        </div>
-        <button data-next>Continue</button>
-      </div>
-
-      <div class="screen center" data-screen>
-        <div class="moon"></div>
-        <h1>Moonie</h1>
+      <article class="phone s4 center fox">
+        <h2>Moonie <small>BETA</small></h2>
+        <div class="fox-ball"></div>
         <p>Leave stress behind</p>
-        <button data-next>Start</button>
-      </div>
+      </article>
 
-      <div class="screen" data-screen>
-        <div class="status">9:41</div>
-        <h2>Let’s personalise<br>your experience</h2>
+      <article class="phone s5">
+        <h3>Lizzie, let’s<br>personalise your<br>experience</h3>
         <ul>
           <li>Trouble falling asleep</li>
-          <li>Calm a busy mind</li>
-          <li>Reduce stress</li>
+          <li>Calm in a busy mind</li>
+          <li>Reduce stress or anxiety</li>
           <li>Increase happiness</li>
-          <li>Create healthy habit</li>
+          <li>Create a healthy habit</li>
         </ul>
-        <button data-next>Continue</button>
-      </div>
+        <button>Continue</button>
+      </article>
 
-      <div class="screen" data-screen>
-        <div class="status">9:41</div>
-        <h2>What time do you<br>want sleep sound?</h2>
-        <div class="picker"><span>10:00 pm</span><span class="active">11:00 pm</span><span>12:00 pm</span></div>
-        <button data-next>Save</button>
-      </div>
+      <article class="phone s6">
+        <h3>What time do<br>you want to try<br>sleep sound?</h3>
+        <div class="picker"><span>10:00 am</span><span class="active">11:00 pm</span><span>12:00 pm</span></div>
+        <button>Save</button>
+      </article>
 
-      <div class="screen center" data-screen>
-        <h2>All set ✨</h2>
-        <p>Your onboarding is done</p>
-        <button data-reset>Back to start</button>
-      </div>
-
-      <div class="bottom-nav">
-        <button data-prev>←</button>
-        <div class="dots"></div>
-        <button data-next>→</button>
-      </div>
-    </div>
-  </div>
-
-<script src="app.js"></script>
+      <article class="phone s7">
+        <h3>Choose 1 or more<br>calming colors<br>that you like</h3>
+        <div class="chips"><span>Warm</span><span>Ocean</span><span>Nature</span><span>Night</span></div>
+        <button>Continue</button>
+      </article>
+    </section>
+  </main>
 </body>
 </html>
