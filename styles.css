@@ -34,8 +34,7 @@ p{opacity:.9;margin:0 0 14px}
 .chip{border:none;border-radius:12px;padding:12px 10px;background:rgba(255,255,255,.12);color:#fff;font-size:14px}
 .chip.active{background:rgba(219,123,255,.5);outline:2px solid rgba(255,255,255,.45)}
 .center{text-align:center}
-.moon{margin:96px auto 16px;width:82px;height:82px;border-radius:50%;background:#fff;box-shadow:0 0 44px rgba(255,255,255,.85);animation:pulse 2.8s ease-in-out infinite}
-@keyframes pulse{50%{transform:scale(1.06);box-shadow:0 0 58px rgba(255,255,255,.95)}}
+
 ul{list-style:none;padding:0;margin:8px 0 14px;display:grid;gap:8px}
 li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-size:13px;display:flex;gap:8px;align-items:center}
 .picker{display:grid;gap:10px;margin:12px 0 20px}
@@ -45,3 +44,12 @@ li{background:rgba(255,255,255,.1);padding:10px 12px;border-radius:999px;font-si
 .dots{display:flex;justify-content:center;gap:8px}.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35)}.dot.active{width:20px;border-radius:99px;background:#fff}
 
 .audio-toggle{position:absolute;right:14px;top:max(12px,env(safe-area-inset-top));z-index:5;border:none;border-radius:12px;padding:8px 10px;background:rgba(255,255,255,.18);color:#fff;font-size:18px}
+
+.sky-cycle{position:relative;margin:70px auto 18px;width:220px;height:130px;border-radius:26px;overflow:hidden;
+ background:linear-gradient(180deg,#132269,#0a1242);animation:skyFade 10s ease-in-out infinite}
+.sun,.moon{position:absolute;top:28px;width:70px;height:70px;border-radius:50%;transition:all .8s ease}
+.sun{left:18px;background:#ffd86b;box-shadow:0 0 26px rgba(255,216,107,.9);animation:sunMove 10s ease-in-out infinite}
+.moon{right:18px;background:#f7f8ff;box-shadow:0 0 28px rgba(255,255,255,.9);animation:moonMove 10s ease-in-out infinite}
+@keyframes skyFade{0%,100%{background:linear-gradient(180deg,#16266f,#0a1242)}50%{background:linear-gradient(180deg,#7ecbff,#4aa1ff)}}
+@keyframes sunMove{0%,100%{opacity:0.15;transform:translateY(8px) scale(.9)}50%{opacity:1;transform:translateY(-6px) scale(1)}}
+@keyframes moonMove{0%,100%{opacity:1;transform:translateY(-6px) scale(1)}50%{opacity:0.12;transform:translateY(10px) scale(.9)}}
