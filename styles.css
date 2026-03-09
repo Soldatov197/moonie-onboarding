@@ -1,9 +1,9 @@
 :root{--bg:#d7d8ff;--txt:#f4f6ff}
 *{box-sizing:border-box}
-body{margin:0;font-family:Inter,sans-serif;background:radial-gradient(circle at top,#e9e9ff,#d7d8ff 50%)}
-.app-wrap{min-height:100vh;display:grid;place-items:center;padding:20px}
+body{margin:0;font-family:Inter,sans-serif;background:radial-gradient(circle at top,#e9e9ff,#d7d8ff 50%);height:100vh;overflow:hidden}
+.app-wrap{height:100vh;display:grid;place-items:center;padding:10px}
 .phone{
-  width:min(390px,96vw);height:min(820px,95vh);border-radius:38px;overflow:hidden;position:relative;
+  width:min(390px,96vw);height:calc(100vh - 20px);max-height:820px;border-radius:38px;overflow:hidden;position:relative;
   color:var(--txt);padding:18px;background:linear-gradient(180deg,#2b38a7,#12145f 64%,#0b0e43);
   box-shadow:0 24px 52px rgba(12,16,80,.35), inset 0 0 0 2px rgba(255,255,255,.08)
 }
