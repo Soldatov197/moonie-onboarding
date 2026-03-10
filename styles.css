@@ -6,54 +6,56 @@ body{position:fixed;inset:0}
 .app{
   position:fixed;inset:0;
   height:100dvh;
-  padding:max(14px,env(safe-area-inset-top)) 14px max(14px,env(safe-area-inset-bottom));
+  padding:max(12px,env(safe-area-inset-top)) clamp(10px,3vw,16px) max(12px,env(safe-area-inset-bottom));
   color:var(--txt);
   background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38);
   overflow:hidden;
-  transition:background 14s ease-in-out;
+  transition:background 16s ease-in-out;
 }
 .app.day{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
 .app.night{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}
 
-.stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:42px 42px;opacity:.16;animation:drift 26s linear infinite;pointer-events:none}
+.stars{position:absolute;inset:0;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:42px 42px;opacity:.14;animation:drift 26s linear infinite;pointer-events:none}
 @keyframes drift{to{transform:translateY(42px)}}
 
-.screen{display:none !important;position:absolute;left:14px;right:14px;top:max(14px,env(safe-area-inset-top));bottom:90px;padding:4px;overflow:hidden}
+.screen{display:none !important;position:absolute;left:clamp(10px,3vw,16px);right:clamp(10px,3vw,16px);top:max(12px,env(safe-area-inset-top));bottom:84px;padding:4px;overflow:hidden}
 .screen.active{display:block !important;animation:slide .22s ease}
 @keyframes slide{from{opacity:.2;transform:translateX(12px)}to{opacity:1;transform:none}}
 
 .status{font-size:12px;opacity:.74;margin-bottom:8px}
-h1{font-size:56px;margin:44vh 0 6px;text-align:center;position:relative;z-index:2;text-shadow:0 8px 24px rgba(0,0,0,.35)}
-h2{font-size:clamp(34px,9vw,44px);line-height:1.05;margin:8px 0 12px}
-p{opacity:.9;margin:0 0 14px;position:relative;z-index:2}
+h1{font-size:clamp(44px,12vw,56px);margin:42vh 0 8px;text-align:center;position:relative;z-index:3;text-shadow:0 8px 24px rgba(0,0,0,.35)}
+h2{font-size:clamp(28px,8.5vw,44px);line-height:1.05;margin:8px 0 12px}
+p{opacity:.9;margin:0 0 14px;position:relative;z-index:3;font-size:clamp(14px,3.8vw,16px)}
 
-.name-input{width:100%;background:rgba(255,255,255,.82);color:#10154b;border:none;border-radius:10px;font-size:30px;padding:8px 10px;margin:4px 0 16px;outline:none;box-shadow:none}
-.primary{width:100%;border:none;border-radius:999px;padding:13px 16px;background:linear-gradient(180deg,#ef9bff,#cb62ff);color:#fff;font-weight:700;font-size:16px;position:relative;z-index:2}
-.ghost{width:56px;height:46px;border:none;border-radius:14px;background:rgba(255,255,255,.06);color:#fff;font-size:20px;box-shadow:none}
+.name-input{width:100%;background:rgba(255,255,255,.84);color:#10154b;border:none;border-radius:10px;font-size:clamp(22px,7vw,30px);padding:8px 10px;margin:4px 0 14px;outline:none;box-shadow:none}
+.primary{width:100%;border:none;border-radius:999px;padding:13px 16px;background:linear-gradient(180deg,#ef9bff,#cb62ff);color:#fff;font-weight:700;font-size:clamp(14px,3.8vw,16px);position:relative;z-index:3}
+.ghost{width:52px;height:44px;border:none;border-radius:14px;background:rgba(255,255,255,.07);color:#fff;font-size:20px;box-shadow:none}
 
-.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 20px}
-.chip{border:none;border-radius:12px;padding:12px 10px;background:rgba(255,255,255,.06);color:#fff;font-size:14px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 18px}
+.chip{border:none;border-radius:12px;padding:12px 10px;background:rgba(255,255,255,.07);color:#fff;font-size:13px}
 .chip.active{background:rgba(219,123,255,.45)}
 .center{text-align:center}
 
 ul{list-style:none;padding:0;margin:8px 0 14px;display:grid;gap:8px}
-li{background:rgba(255,255,255,.05);padding:10px 12px;border-radius:999px;font-size:13px;display:flex;gap:8px;align-items:center;border:none}
-.picker{display:grid;gap:10px;margin:12px 0 20px}
-.time{border:none;border-radius:12px;padding:12px;background:rgba(255,255,255,.06);color:#fff;font-size:15px}
-.time.active{background:rgba(255,255,255,.35);font-weight:700}
+li{background:rgba(255,255,255,.06);padding:10px 12px;border-radius:999px;font-size:13px;display:flex;gap:8px;align-items:center;border:none}
+.picker{display:grid;gap:10px;margin:12px 0 18px}
+.time{border:none;border-radius:12px;padding:12px;background:rgba(255,255,255,.07);color:#fff;font-size:15px}
+.time.active{background:rgba(255,255,255,.30);font-weight:700}
 
-.bottom-nav{position:absolute;left:14px;right:14px;bottom:max(12px,env(safe-area-inset-bottom));display:grid;grid-template-columns:56px 1fr 56px;gap:10px;align-items:center}
-.dots{display:flex;justify-content:center;gap:8px}.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35)}.dot.active{width:20px;border-radius:99px;background:#fff}
-.audio-toggle{position:absolute;right:14px;top:max(12px,env(safe-area-inset-top));z-index:5;border:none;border-radius:12px;padding:8px 10px;background:rgba(255,255,255,.06);color:#fff;font-size:18px}
+.bottom-nav{position:absolute;left:clamp(10px,3vw,16px);right:clamp(10px,3vw,16px);bottom:max(10px,env(safe-area-inset-bottom));display:grid;grid-template-columns:52px 1fr 52px;gap:10px;align-items:center}
+.dots{display:flex;justify-content:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35)}
+.dot.active{width:20px;border-radius:99px;background:#fff}
+.audio-toggle{position:absolute;right:clamp(10px,3vw,16px);top:max(10px,env(safe-area-inset-top));z-index:5;border:none;border-radius:12px;padding:8px 10px;background:rgba(255,255,255,.08);color:#fff;font-size:18px}
 
 /* Full-screen day/night scene */
 .celestial{overflow:hidden}
 .sky-full{position:absolute;inset:0;z-index:0;animation:skyPhase 60s linear infinite;overflow:hidden;pointer-events:none}
 .celestial h1,.celestial p,.celestial .primary{position:relative;z-index:3}
 
-.sun,.moon{position:absolute;width:110px;height:110px;border-radius:50%;z-index:2}
-.sun{left:10%;top:18%;background:#ffd24d;box-shadow:0 0 60px rgba(255,210,77,1);animation:sunOrbit 60s linear infinite !important;will-change:transform,opacity,left,top;}
-.moon{left:62%;top:18%;background:#ffffff;box-shadow:0 0 60px rgba(255,255,255,1);animation:moonOrbit 60s linear infinite !important;will-change:transform,opacity,left,top;}
+.sun,.moon{position:absolute;width:clamp(76px,22vw,112px);height:clamp(76px,22vw,112px);border-radius:50%;z-index:2;will-change:left,top,opacity,transform}
+.sun{left:-20%;top:82%;background:#ffd24d;box-shadow:0 0 60px rgba(255,210,77,1);animation:sunOrbit 60s linear infinite}
+.moon{left:-20%;top:82%;background:#fff;box-shadow:0 0 60px rgba(255,255,255,1);animation:moonOrbit 60s linear infinite}
 
 @keyframes skyPhase{
   0%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
@@ -65,15 +67,6 @@ li{background:rgba(255,255,255,.05);padding:10px 12px;border-radius:999px;font-s
   90%{background:linear-gradient(180deg,#1a2378,#0f1453 64%,#080c38)}
   100%{background:linear-gradient(180deg,#a7ddff,#78c2ff 58%,#5ea7ee)}
 }
-
-  46%{opacity:0;transform:translate(-280px,220px) scale(.85)}
-  58%{opacity:.4;transform:translate(-210px,60px) scale(.92)}
-  72%{opacity:1;transform:translate(-120px,-60px) scale(1)}
-  86%{opacity:1;transform:translate(-30px,-20px) scale(1)}
-  100%{opacity:0;transform:translate(40px,220px) scale(.85)}
-}
-
-
 @keyframes sunOrbit{
   0%{left:-20%; top:82%; opacity:0}
   8%{opacity:1}
@@ -83,7 +76,6 @@ li{background:rgba(255,255,255,.05);padding:10px 12px;border-radius:999px;font-s
   70%{left:104%; top:82%; opacity:0}
   100%{left:104%; top:82%; opacity:0}
 }
-
 @keyframes moonOrbit{
   0%{left:-20%; top:82%; opacity:0}
   44%{left:-20%; top:82%; opacity:0}
@@ -92,4 +84,20 @@ li{background:rgba(255,255,255,.05);padding:10px 12px;border-radius:999px;font-s
   84%{left:46%; top:14%; opacity:1}
   96%{left:74%; top:34%; opacity:.8}
   100%{left:104%; top:82%; opacity:0}
+}
+
+/* Small phones (SE/mini) */
+@media (max-width: 375px){
+  .screen{bottom:80px}
+  h2{font-size:clamp(24px,8vw,34px)}
+  li{font-size:12px;padding:8px 10px}
+  .primary{padding:11px 14px}
+  .chips{gap:8px}
+}
+
+/* Large phones (Pro Max, Ultra) */
+@media (min-width: 430px){
+  .screen{left:18px;right:18px}
+  .bottom-nav{left:18px;right:18px}
+  .audio-toggle{right:18px}
 }
